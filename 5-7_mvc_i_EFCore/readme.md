@@ -12,18 +12,17 @@
 
 #### Zadanie 2
 
-1. Stwórz folder Models.
-1. Dodaj w tym folderze model `Film`.
-1. W modelu utwórz właściwości:
-    `ID` typu `int` - klucz główny.
-    `Title` typu `string` - tytuł filmu - właściwość musi być wymagana.
-    `Year` typu `int` - tekst filmu.
 1. Zajżyj do folderu Data. Powinna być utworzona migracja, która będzie służyć zaimplementowaniu uwierzytelniania i autoryzacji. 
 1. Zaktualizuj (utwórz) bazę danych (komenda `Update-Database` w konsoli Nuget Package Manager).
 1. Zobacz tabele utworzone w bazie danych.
 
 #### Zadanie 3
-
+1. Stwórz folder `Models`.
+1. Dodaj w tym folderze model `Film`.
+1. W modelu utwórz właściwości:
+    `ID` typu `int` - klucz główny.
+    `Title` typu `string` - tytuł filmu - właściwość musi być wymagana.
+    `Year` typu `int` - tekst filmu.
 1. W utworzonym automatycznie kontekście utwórz właściwość `DbSet<Film>` o nazwie `Films`.
 
 #### Zadanie 4
@@ -35,11 +34,12 @@
 
 #### Zadanie 5
 
+1. Utwórz w projekcie folder `Repositories`.
 1. Utwórz w projekcie klasę:
 ```csharp
 public class FilmManager
 {
-    public FilmManager AddFilm(FilmModel filmModel)
+    public FilmManager AddFilm(Film film)
     {
         return this;
     }
@@ -49,7 +49,7 @@ public class FilmManager
         return this;
     }
 
-    public FilmManager UpdateFilm(FilmModel filmModel)
+    public FilmManager UpdateFilm(Film film)
     {
         return this;
     }
@@ -64,21 +64,24 @@ public class FilmManager
         return null;
     }
 
-    public List<FilmModel> GetFilms()
+    public List<Film> GetFilms()
     {
         return null;
     }
 }
 ```
-2. W klasie `FilmManager` w metodzie `AddFilm` należy:
-    1. Dodać wstrzyknięcie `contextu` w konstruktorze klasy..
+1. W klasie `FilmManager` w metodzie `AddFilm` należy:
+    1. Dodać wstrzyknięcie `contextu` w konstruktorze klasy `ApplicationDbContext context`.
+	1. Przypisz wstrzyknięty context do prywatnego pola `_context`.
     1. Dodać do kontekstu obiekt typu `Film` przekazany w parametrze metody `AddFilm`.
     1. Obiekt dodajemy wywołując metodę `Add` na właściwości `Films` kontekstu.
     1. Zatwierdzić zmiany wywołując metodę `SaveChanges` na obiekcie kontekstu.
-3. W akcji `Index` kontrolera `Film` utwórz obiekt klasy `FilmModel` o nazwie `FilmModel` przypisując do właściwości dowolne dane.
-4. Do właściwości `ID` modelu przypisz wartość `1`.
-5. Utwórz obiekt klasy `FilmManager` o nazwie `FilmManager` i sprawdź działanie metody `AddFilm` jako argument przekazując obiekt `FilmModel`.
-6. Zobaczy typ i komunikat rzuconego wyjątku.
+1. W widoku `Index` utwórz obiekt klasy `Film` o nazwie `Film` przypisując do właściwości dowolne dane.
+1. Do właściwości `ID` modelu przypisz wartość `1`.
+1. Dodaj wstrzyknięcie `contextu` w konstruktorze klasy `ApplicationDbContext context`.
+1. Przypisz wstrzyknięty context do prywatnego pola `_context`.
+1. Utwórz obiekt klasy `FilmManager` o nazwie `FilmManager` i sprawdź działanie metody `AddFilm` jako argument przekazując obiekt `Film`.
+1. Zobaczy typ i komunikat rzuconego wyjątku.
 
 #### Zadanie 6
 
@@ -89,19 +92,19 @@ public class FilmManager
 #### Zadanie 7
 
 1. W klasie `FilmManager` w metodzie `RemoveFilm` należy:
-    1. Pobrać obiekt typu `FilmModel` za pomocą metody `Single` lub `SingleOrDefault`. Obiekt pobierz na podstawie właściwości `ID` modelu i parametru metody.
+    1. Pobrać obiekt typu `Film` za pomocą metody `Single` lub `SingleOrDefault`. Obiekt pobierz na podstawie właściwości `ID` modelu i parametru metody.
     1. Usunąć pobrany model z bazy przy pomocy metody `Remove`, która powinna być wywołana na właściwość `Films` kontekstu.
     1. Zatwierdzić zmiany metodą `SaveChanges`.
 	
 #### Zadanie 8
 
 1. W klasie `FilmManager` zmień implementację metody `GetFilm` w następujący sposób:
-    1. Pobrać obiekt typu `FilmModel` za pomocą metody `SingleOrDefault`. Obiekt pobierz na podstawie właściwości `ID` modelu i parametru metody.
+    1. Pobrać obiekt typu `Film` za pomocą metody `SingleOrDefault`. Obiekt pobierz na podstawie właściwości `ID` modelu i parametru metody.
     
 
 #### Zadanie 9
 1. W klasie `FilmManager` w metodzie `ChangeTitle` należy:
-    1. Pobrać obiekt typu `FilmModel` za pomocą metody `Single`. Obiekt pobierz na podstawie właściwości `ID` modelu i parametru metody.
+    1. Pobrać obiekt typu `Film` za pomocą metody `Single`. Obiekt pobierz na podstawie właściwości `ID` modelu i parametru metody.
     1. Zmodyfikować właściwość `Title`, na wartość `title` z parametru.
     1. Zatwierdź zmiany metodą `SaveChanges`.
 
@@ -121,7 +124,7 @@ public class FilmManager
 #### Zadanie 12
 
 1. W klasie `FilmManager` zmień implementację metody `GetFilms` w następujący sposób:
-    1. Pobrać listę obiektów typu `FilmModel` za pomocą metody `ToList`.
+    1. Pobrać listę obiektów typu `Film` za pomocą metody `ToList`.
 
 
 #### Zadanie 13
@@ -130,7 +133,7 @@ public class FilmManager
 1. Widok powinien wyświetlać formularz zbudowany na podstawie modelu `AddFilm`.
 1. Jeżeli widok został dodany automatycznie upewnij się, że model `Film` ma dodany odpowiedni atrybut mapujący.
 1. Jeżeli widok tworzyłeś ręcznie dodaj odpowiedni binding.
-1. W widoku w odpowiedniej metodzie obsłuż żądanie, wywoływane metodą `post`.
+1. W widoku w odpowiedniej metodzie obsłuż żądanie, wywoływane metodą http `post` lub zmodyfikuj istniejącą implementację, żeby korzystała z przygotowanego repozytorium.
 
 #### Zadanie 14
 
