@@ -10,18 +10,18 @@ namespace FilmDB.Repositories
         {
             _context = context;
         }
-        public FilmManager AddFilm(Film film)
+        public async Task<FilmManager> AddFilm(Film film)
         {
             try
             {
                 _context.Films.Add(film);
-                _context.SaveChanges();
+                await _context.SaveChangesAsync();
             }
             catch (Exception)
             {
 
                 film.ID = 0;
-                _context.SaveChanges();
+                await _context.SaveChangesAsync();
             }
 
             return this;
