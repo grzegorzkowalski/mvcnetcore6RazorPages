@@ -1,39 +1,34 @@
-﻿using FilmDB.Data;
-using FilmDB.Models;
-using FilmDB.Repositories;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.EntityFrameworkCore;
+using FilmDB.Data;
+using FilmDB.Models;
+using FilmDB.Repositories;
 
 namespace FilmDB.Pages
 {
     public class IndexModel : PageModel
     {
-        private readonly ILogger<IndexModel> _logger;
-        private readonly ApplicationDbContext _context;
+        private readonly FilmDB.Data.ApplicationDbContext _context;
 
-        public IndexModel(ILogger<IndexModel> logger, ApplicationDbContext context)
+        public IndexModel(FilmDB.Data.ApplicationDbContext context)
         {
-            _logger = logger;
             _context = context;
         }
 
-        public void OnGet()
+        public IList<Film> Film { get;set; } = default!;
+
+        public async Task OnGetAsync()
         {
-            //Film film = new();
-            //film.Title = "Uwolnić orkę";
-            //film.Year = 1990;
-            //film.ID = 1;
-            //FilmManager manager = new(_context);
-            //await manager.AddFilm(film);
-            ////manager.RemoveFilm(2);
-            //var filmWithID3 = manager.GetFilm(3);
-            //var filmWithID4 = manager.GetFilm(4);
-            //filmWithID4.Title = "Terminator";
-            //filmWithID4.Year = 1989;
-            //manager.UpdateFilm(filmWithID4);
-            //manager.ChangeTitle(3, "Uwolnić orkę 2");
-            //manager.ChangeTitle(5, null);
-            //var films = manager.GetFilms();
+            if (_context.Films != null)
+            {
+                var manager = new FilmManager(_context);
+                Film = await manager.GetFilms();
+            }
         }
     }
 }

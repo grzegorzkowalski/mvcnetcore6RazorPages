@@ -1,5 +1,6 @@
 ﻿using FilmDB.Data;
 using FilmDB.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace FilmDB.Repositories
 {
@@ -73,9 +74,9 @@ namespace FilmDB.Repositories
             return film;
         }
 
-        public List<Film> GetFilms()
+        public async Task<List<Film>> GetFilms()
         {
-            return _context.Films.ToList();
+            return await _context.Films.ToListAsync();
         }
     }
 }

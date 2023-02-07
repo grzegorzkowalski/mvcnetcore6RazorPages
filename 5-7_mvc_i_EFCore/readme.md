@@ -146,13 +146,12 @@ public class FilmManager
 
 1. Utwórz widok o nazwie `RemoveFilm`, który przyjmie parametr typu `int` o nazwie `id`, którym będzie klucz główny filmu do usunięcia.
     1. Logika powinna pobrać film o podanym `id` i przekazać go do widoku przez model.
-    1. Wyświetl wszystkie informacje o filmie oraz przycisk z tekstem `Potwierdź Usunięcie`, kierujący do widoku `RemoveConfirm`.
+    1. Wyświetl wszystkie informacje o filmie oraz przycisk z tekstem `Potwierdź Usunięcie`, wykonujące metodę http `post`.
     1. W widoku wyświetl również przycisk pozwalający wrócić do akcji `Index`.
-	1. Utwórz widok o nazwie `RemoveConfirm`, która przyjmuje parametr typu `int` o nazwie `id`.
-    1. Akcja powinna usuwać encję o podanym `id` z bazy danych.
+    1. Metoda powinna usuwać encję o podanym `id` z bazy danych.
     1. Przed usunięciem sprawdź czy film o podanym `id` istnieje w bazie.
     1. Po usunięciu filmu akcja powinna przekierować na akcję `Index`.
-1. W widoku `Index` przy każdym filmie w tabeli utwórz przycisk kierujący do widoku `Remove` z `id` danego filmu.
+1. W widoku `Index` przy każdym filmie w tabeli utwórz przycisk kierujący do widoku `RemoveFilm` z `id` danego filmu.
 
 #### Zadanie 16
 
