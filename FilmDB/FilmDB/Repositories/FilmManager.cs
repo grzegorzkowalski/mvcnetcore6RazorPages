@@ -28,13 +28,13 @@ namespace FilmDB.Repositories
             return this;
         }
 
-        public FilmManager RemoveFilm(int id)
+        public async Task<FilmManager> RemoveFilm(int id)
         {
-            var filmToDelete = _context.Films.SingleOrDefault(x => x.ID == id);
+            var filmToDelete = await GetFilm(id);
             if (filmToDelete != null)
             { 
                 _context.Remove(filmToDelete);
-                _context.SaveChanges();
+                await _context.SaveChangesAsync();
             }
             return this;
         }
@@ -49,9 +49,9 @@ namespace FilmDB.Repositories
             return this;
         }
 
-        public FilmManager ChangeTitle(int id, string newTitle)
+        public async Task<FilmManager> ChangeTitle(int id, string newTitle)
         {
-            var film = GetFilm(id);
+            var film = await GetFilm(id);
             if (film != null)
             {
                 if (String.IsNullOrWhiteSpace(newTitle))
@@ -63,15 +63,20 @@ namespace FilmDB.Repositories
                     film.Title = newTitle;
                 }
                 
-                _context.SaveChanges();
+                await _context.SaveChangesAsync();
             }
             return this;
         }
 
-        public Film GetFilm(int id)
+        public async Task<Film> GetFilm(int? id)
         {
-            var film = _context.Films.SingleOrDefault(x => x.ID == id);
+            var film = new Film();
+            if (id != null) 
+            {
+                film = await _context.Films.SingleOrDefaultAsync(x => x.ID == id);
+            }
             return film;
+
         }
 
         public async Task<List<Film>> GetFilms()

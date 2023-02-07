@@ -32,9 +32,9 @@
                 @Html.DisplayFor(modelItem => item.Year)
             </td>
             <td>
-                <a asp-page="./Edit" asp-route-id="@item.ID">Edit</a> |
+                <a asp-page="./EditFilm" asp-route-id="@item.ID">EditFilm</a> |
                 <a asp-page="./Details" asp-route-id="@item.ID">Details</a> |
-                <a asp-page="./Delete" asp-route-id="@item.ID">Delete</a>
+                <a asp-page="./RemoveFilm" asp-route-id="@item.ID">RemoveFilm</a>
             </td>
         </tr>
 }
