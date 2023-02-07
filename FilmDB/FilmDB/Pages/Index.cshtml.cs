@@ -25,6 +25,15 @@ namespace FilmDB.Pages
             film.ID = 1;
             FilmManager manager = new(_context);
             manager.AddFilm(film);
+            //manager.RemoveFilm(2);
+            var filmWithID3 = manager.GetFilm(3);
+            var filmWithID4 = manager.GetFilm(4);
+            filmWithID4.Title = "Terminator";
+            filmWithID4.Year = 1989;
+            manager.UpdateFilm(filmWithID4);
+            manager.ChangeTitle(3, "Uwolnić orkę 2");
+            manager.ChangeTitle(5, null);
+            var films = manager.GetFilms();
         }
     }
 }
