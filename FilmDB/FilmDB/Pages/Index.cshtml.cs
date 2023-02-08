@@ -13,11 +13,14 @@ namespace FilmDB.Pages
 {
     public class IndexModel : PageModel
     {
-        private readonly FilmDB.Data.ApplicationDbContext _context;
+        private readonly ApplicationDbContext _context;
 
-        public IndexModel(FilmDB.Data.ApplicationDbContext context)
+        private readonly FilmManager _manager;
+
+        public IndexModel(ApplicationDbContext context, FilmManager manager)
         {
             _context = context;
+            _manager = manager; 
         }
 
         public IList<Film> Film { get;set; } = default!;
@@ -26,8 +29,8 @@ namespace FilmDB.Pages
         {
             if (_context.Films != null)
             {
-                var manager = new FilmManager(_context);
-                Film = await manager.GetFilms();
+                //var manager = new FilmManager(_context);
+                Film = await _manager.GetFilms();
             }
         }
     }

@@ -15,9 +15,12 @@ namespace FilmDB.Pages
     {
         private readonly ApplicationDbContext _context;
 
-        public AddFilmModel(ApplicationDbContext context)
+        private readonly FilmManager _manager;
+
+        public AddFilmModel(ApplicationDbContext context, FilmManager manager)
         {
             _context = context;
+            _manager = manager;
         }
 
         public IActionResult OnGet()
@@ -37,8 +40,7 @@ namespace FilmDB.Pages
                 return Page();
             }
 
-            var manager = new FilmManager(_context);
-            await manager.AddFilm(Film);
+            await _manager.AddFilm(Film);
 
             return RedirectToPage("./Index");
         }

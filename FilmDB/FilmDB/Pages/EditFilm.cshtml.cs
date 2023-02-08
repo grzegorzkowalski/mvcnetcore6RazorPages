@@ -1,24 +1,21 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.RazorPages;
-using Microsoft.AspNetCore.Mvc.Rendering;
-using Microsoft.EntityFrameworkCore;
-using FilmDB.Data;
+﻿using FilmDB.Data;
 using FilmDB.Models;
 using FilmDB.Repositories;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.EntityFrameworkCore;
 
 namespace FilmDB.Pages
 {
     public class EditFilmModel : PageModel
     {
-        private readonly FilmDB.Data.ApplicationDbContext _context;
+        private readonly ApplicationDbContext _context;
+        private readonly FilmManager _manager;
 
-        public EditFilmModel(FilmDB.Data.ApplicationDbContext context)
+        public EditFilmModel(ApplicationDbContext context, FilmManager manager)
         {
             _context = context;
+            _manager = manager; 
         }
 
         [BindProperty]
@@ -26,13 +23,12 @@ namespace FilmDB.Pages
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
-            var manaqer = new FilmManager(_context);
             if (id == null || _context.Films == null)
             {
                 return NotFound();
             }
 
-            var film =  await manaqer.GetFilm(id);
+            var film =  await _manager.GetFilm(id);
             if (film == null)
             {
                 return NotFound();
@@ -45,7 +41,6 @@ namespace FilmDB.Pages
         // For more details, see https://aka.ms/RazorPagesCRUD.
         public async Task<IActionResult> OnPostAsync()
         {
-            var manaqer = new FilmManager(_context);
             if (!ModelState.IsValid)
             {
                 return Page();

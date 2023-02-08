@@ -13,11 +13,13 @@ namespace FilmDB.Pages
 {
     public class RemoveFilmModel : PageModel
     {
-        private readonly FilmDB.Data.ApplicationDbContext _context;
+        private readonly ApplicationDbContext _context;
+        private readonly FilmManager _manager;
 
-        public RemoveFilmModel(FilmDB.Data.ApplicationDbContext context)
+        public RemoveFilmModel(ApplicationDbContext context, FilmManager manager)
         {
             _context = context;
+            _manager = manager;
         }
 
         [BindProperty]
@@ -25,12 +27,11 @@ namespace FilmDB.Pages
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
-            var manaqer = new FilmManager(_context);
             if (id == null || _context.Films == null)
             {
                 return NotFound();
             }  
-            var film = await manaqer.GetFilm(id);
+            var film = await _manager.GetFilm(id);
 
             if (film == null || film.ID == 0)
             {
@@ -45,17 +46,16 @@ namespace FilmDB.Pages
 
         public async Task<IActionResult> OnPostAsync(int? id)
         {
-            var manaqer = new FilmManager(_context);
             if (id == null || _context.Films == null)
             {
                 return NotFound();
             }
-            var film = await manaqer.GetFilm(id);
+            var film = await _manager.GetFilm(id);
 
             if (film != null)
             {
                 Film = film;
-                await manaqer.RemoveFilm(Film.ID);
+                await _manager.RemoveFilm(Film.ID);
             }
 
             return RedirectToPage("./Index");
