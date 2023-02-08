@@ -14,7 +14,7 @@
 
 1. Utwórz stronę o nazwie `AddRole`. Strona będzie dodawała role do użytkownika.
 1. Dla strony `Role` ustaw filtr `Authorize`, aby nie był dostępny dla niezalogowanych użytkowników.
-1. Odbierz w kontrolerze zarejestrowaną usługę `RoleManager`. W tym celu należy zmodyfikować konfigurację AddDefaultIdentity.
+1. Odbierz w konstruktorze zarejestrowaną usługę `RoleManager`. W tym celu należy zmodyfikować konfigurację AddDefaultIdentity.
 `
 builder.Services.AddDefaultIdentity<IdentityUser>(options => 
     options.SignIn.RequireConfirmedAccount = false)
@@ -29,18 +29,18 @@ builder.Services.AddDefaultIdentity<IdentityUser>(options =>
 
 1. Utwórz stronę o nazwie `RemoveRole`.
 1. Widok powinien wyświetlać pole typu dropdown z listą ról w systemie oraz przyciskiem pozwalającym usunąć rolę.
-1. Formularz powinien kierować na akcję typu `post`, która usunie rolę.
-1. W przypadku pomyślnego usunięcia roli zrób przekierowanie na akcję `Index`, w przeciwnym przypadku zwróć widok z komunikatem błędu.
+1. Formularz powinien kierować na metodę typu `post`, która usunie rolę.
+1. W przypadku pomyślnego usunięcia roli zrób przekierowanie na stronę główną, w przeciwnym przypadku zwrócić błąd.
 
 #### Zadanie 3
 
 1. Utwórz stronę `ListRoles` i wyświetl listę wszystkich ról w systemie.
 1. Nad listą utwórz link do strony `AddRole`.
-1. Na liście przy każdej pozycji utwórz link do akcji `RemoveRole`. Link `RemoveRole` powinien zawierać `ID` roli.
+1. Na liście przy każdej pozycji utwórz link do widoku `RemoveRole`. Link `RemoveRole` powinien zawierać `ID` roli.
 
 #### Zadanie 4
 
-1. Przy każdym wierszu na liście ról utwórz link do akcji `EditRole`. Link powinien zawierać `ID` roli.
+1. Przy każdym wierszu na liście ról utwórz link do widoku `EditRole`. Link powinien zawierać `ID` roli.
 1. Analogicznie do zadania z dodawaniem nowych ról utwórz widok `EditRole`, który pozwoli na edytowanie ról.
 
 #### Zadanie 5

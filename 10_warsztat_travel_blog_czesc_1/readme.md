@@ -33,7 +33,7 @@
 1. Stwórz folder `Models`.
 1. Dodaj model `Email`, który będzie reprezentował dane przesłane w formularzu kontaktowym.
 1. Dodaj model do klasy contextu.
-1. Zrób migrację i aktualizację bazy danych.
+1. Zrób migrację i zrób aktualizację bazy danych.
 1. Stwórz stronę `Kontakt` z silnie typowanym formularzem, który będzie dodawał do bazy wpisy przesłane przez użytkowników,
 1. Po przesłaniu poprawnie formularza, ukryj formularz i wyświetl informację, że formularz został wysłany poprawnie i niedługo odpowiemy.
 
@@ -44,6 +44,6 @@
 1. Zrób migrację i aktualizację bazy danych.
 1. Stwórz odpowiednie podstrony do dodawania, edycji, usuwania, wyświetlania pojedyńczego elementu galerii jak i listy. 
 1. Dodaj asynchroniczne repozytorium do obsługi podstawowych operacji crudowych.
-1. Zmodyfikuj widok `Galeria`, żeby wykorzystywał listę elementó galerii dodanych dynamicznie.  
+1. Zmodyfikuj widok `Galeria`, żeby wykorzystywał listę elementów galerii dodanych dynamicznie.  
 
   		   
