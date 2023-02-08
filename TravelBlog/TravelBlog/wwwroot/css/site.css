@@ -226,7 +226,7 @@ table {
     margin-top: 152px;
     padding: 16px;
     padding-bottom: 32px;
-    background-image: url(../img/mainBG.png);
+    background-image: url(../assets/mainBG.png);
     color: #fff;
     min-height: 100vh;
     max-height: max-content;
@@ -316,4 +316,538 @@ table {
             line-height: 32px;
             font-weight: 600;
         }
+}
+
+
+/*    Etap III - Pierwszy artyku³    */
+
+
+.first-article {
+    width: 100%;
+    min-height: 100%;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+.first-article__box {
+    max-width: 1230px;
+    margin: 80px auto;
+    padding: 16px;
+    display: flex;
+    flex-direction: row;
+    gap: 16px;
+}
+
+.first-article__photo {
+    width: 50%;
+    height: max-content;
+}
+
+.first-article__text {
+    font-size: 19px;
+    line-height: 39px;
+}
+
+.first-article__text-date {
+    font-size: 15px;
+    font-weight: 700;
+}
+
+.first-article__text-title {
+    font-size: 33px;
+    line-height: 50px;
+    font-weight: 600;
+    margin-bottom: 16px;
+}
+
+.more-about-article {
+    position: fixed;
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    bottom: 10px;
+    right: 10px;
+    width: 40px;
+    height: 40px;
+    background-image: url(../assets/arrowDown.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    transform: rotate(180deg);
+    cursor: pointer;
+    z-index: 999;
+}
+
+@media screen and (max-width: 800px) {
+    .first-article__box {
+        flex-direction: column;
+    }
+
+    .first-article__photo {
+        width: 100%;
+    }
+
+    .first-article__text-title {
+        font-size: 22px;
+        line-height: 32px;
+    }
+
+    .first-article__text-content {
+        font-size: 16px;
+        line-height: 26px;
+    }
+}
+
+
+/*    Etap IV - Lista artyku³ów   */
+
+
+.more-articles-container {
+    width: 100%;
+}
+
+.more-articles {
+    max-width: 1230px;
+    margin: 0 auto;
+    padding: 50px 16px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+}
+
+.one-of-articles {
+    width: calc(50% - 8px);
+    max-height: 338px;
+    background-color: #eaeaea;
+    display: flex;
+    gap: 10px;
+    height: max-content;
+    overflow: hidden;
+}
+
+    .one-of-articles:hover > * {
+        transform: scale(1.1);
+    }
+
+.one-of-articles-photo,
+.one-of-articles-title {
+    transition: all 250ms;
+}
+
+.one-of-articles-photo {
+    width: 50%;
+    height: max-content;
+    background-position: center;
+    background-repeat: center;
+}
+
+.one-of-articles-title {
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+    .one-of-articles-title p {
+        font-family: 'Poppins', sans-serif;
+        font-size: 19px;
+        line-height: 30px;
+    }
+
+.more-articles-arrows {
+    max-width: 1230px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 16px;
+}
+
+    .more-articles-arrows img:hover {
+        cursor: pointer;
+    }
+
+@media screen and (max-width: 800px) {
+    .one-of-articles {
+        width: 100%;
+    }
+
+        .one-of-articles:hover > * {
+            transform: scale(1.05);
+        }
+}
+
+
+/*    Etap V - Artyku³ promocyjny    */
+
+
+.section-container {
+    max-width: 1230px;
+    margin: 80px auto;
+    font-family: 'Poppins', sans-serif;
+}
+
+.promo-article {
+    max-width: 980px;
+    margin: 80px auto;
+    padding: 0 16px;
+}
+
+    .promo-article p:first-child {
+        font-size: 40px;
+    }
+
+.promo-article-date {
+    font-weight: 700;
+    margin: 50px auto 80px auto;
+    width: fit-content;
+}
+
+.promo-article-title {
+    margin-bottom: 50px;
+    font-size: 53px;
+    line-height: 73px;
+    font-weight: 700;
+}
+
+.promo-article-photo {
+    width: 100%;
+    background-repeat: no-repeat;
+    background-size: 100%;
+    padding-bottom: 45%;
+    background-image: url(../assets/promoArticle.png);
+    margin-bottom: 50px;
+}
+
+.promo-article-text {
+    font-size: 19px;
+    line-height: 39px;
+    margin-bottom: 50px;
+}
+
+.promo-article-inner-Title {
+    font-size: 33px;
+    line-height: 53px;
+    margin-bottom: 20px;
+    font-weight: 600;
+}
+
+@media screen and (max-width: 800px) {
+    .promo-article-title {
+        font-size: 33px;
+        line-height: 53px;
+    }
+
+    .promo-article-text {
+        font-size: 16px;
+        line-height: 26px;
+    }
+
+    .promo-article-inner-Title {
+        font-size: 22px;
+        line-height: 32px;
+    }
+}
+
+
+/*    Etap VI - O mnie   */
+
+
+.about-me-container {
+    max-width: 1230px;
+    margin: 80px auto;
+    font-family: 'Poppins', sans-serif;
+}
+
+.about-me {
+    padding: 16px;
+}
+
+    .about-me img {
+        margin: 0 auto;
+        width: fit-content;
+        display: block;
+    }
+
+.about-me-photo {
+    width: 100%;
+    height: max-content;
+    margin: 100px auto 30px auto !important;
+}
+
+.about-me-photo-description {
+    width: fit-content;
+    margin: 50px auto;
+    font-size: 33px;
+    line-height: 53px;
+    font-weight: 600;
+}
+
+    .about-me-photo-description span {
+        text-transform: uppercase;
+    }
+
+.about-me-title {
+    font-size: 89px;
+    width: fit-content;
+    margin: 0px auto 80px auto;
+}
+
+.about-me-content {
+    font-size: 19px;
+    line-height: 39px;
+}
+
+.about-me-signature {
+    font-size: 19px;
+    float: right;
+    margin-right: 10%;
+    margin-top: 4%;
+}
+
+@media screen and (max-width: 800px) {
+    .about-me-photo-description {
+        font-size: 22px;
+        line-height: 32px;
+    }
+
+    .about-me-content {
+        font-size: 16px;
+        line-height: 26px;
+    }
+
+    .about-me .about-me-photo {
+        max-width: 100%;
+    }
+}
+
+
+/*    Etap VII - Galeria   */
+
+
+.gallery-container {
+    max-width: 1230px;
+    height: max-content;
+    margin: 0 auto;
+    font-family: 'Poppins', sans-serif;
+}
+
+.gallery {
+    box-sizing: border-box;
+    padding: 80px 16px;
+    width: 100%;
+    height: max-content;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+}
+
+.gallery-box {
+    position: relative;
+    width: calc((100% / 3) - 12px);
+    max-height: 440px;
+    overflow: hidden;
+}
+
+.gallery-main-photo {
+    height: max-content;
+    width: 100%;
+}
+
+.main-gallery-photo-description {
+    opacity: 0;
+    color: #fff;
+    text-transform: uppercase;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 46px;
+    cursor: pointer;
+    transition: all 250ms;
+    text-shadow: 0 0 8px black;
+}
+
+.gallery-cover {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(63,74,82, 0.6);
+    transition: all 250ms;
+    overflow: hidden;
+}
+
+    .gallery-cover img {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+.gallery-box:hover .main-gallery-photo-description {
+    opacity: 1;
+}
+
+.gallery-box:hover .gallery-cover {
+    height: 0;
+}
+
+@media screen and (max-width: 800px) {
+    .gallery-box {
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 1230px) {
+    .gallery-cover {
+        height: 99.5%;
+    }
+}
+
+
+/*    Etap VIII - stopka   */
+
+
+footer {
+    background-image: url(../assets/mainBG.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: #fff;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0 16px;
+}
+
+form {
+    max-width: 580px;
+    margin: 120px auto 50px auto;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+}
+
+.input_box {
+    width: calc(100% / 2 - 8px);
+    position: relative;
+    height: max-content;
+}
+
+    .input_box input {
+        width: 100%;
+        background: transparent;
+        border: none;
+        margin-right: auto;
+        border-bottom: 1px solid #fff;
+        padding-bottom: 2%;
+        margin-bottom: 10%;
+        color: #ffffff;
+        font-size: 19px;
+    }
+
+.textarea_box {
+    position: relative;
+    width: 100%;
+}
+
+    .textarea_box textarea {
+        width: 100%;
+        background: transparent;
+        border: none;
+        border-bottom: 1px solid #fff;
+        color: #ffffff;
+        font-size: 19px;
+        min-height: 100px;
+        resize: vertical;
+    }
+
+form textarea::placeholder,
+form input::placeholder {
+    color: #fff;
+    font-family: 'Poppins', sans-serif;
+    font-size: 19px;
+}
+
+.form-button {
+    background-color: #666666;
+    -moz-border-radius: 28px;
+    -webkit-border-radius: 28px;
+    border-radius: 28px;
+    display: block;
+    width: fit-content;
+    margin: 10px auto;
+    cursor: pointer;
+    color: #ffffff;
+    font-family: 'Poppins', sans-serif;
+    font-size: 19px;
+    padding: 16px 31px;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+
+.contact-and-social-media {
+    max-width: 650px;
+    margin: 80px auto;
+    display: flex;
+    gap: 32px;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+    .contact-and-social-media a {
+        width: 70px;
+        height: 70px;
+        border: 1px solid white;
+        display: block;
+        border-radius: 100%;
+        background-repeat: no-repeat;
+        background-position: center;
+        transition: all 250ms;
+    }
+
+        .contact-and-social-media a:hover {
+            transform: scale(1.1);
+        }
+
+.e-mail {
+    background-image: url(../assets/mailIcons.png);
+}
+
+.facebook {
+    background-image: url(../assets/face.png);
+}
+
+.twitter {
+    background-image: url(../assets/twitter.png);
+}
+
+.gplus {
+    background-image: url(../assets/gplus.png);
+}
+
+@media screen and (max-width: 800px) {
+    .input_box {
+        width: 100%;
+    }
+
+    .contact-and-social-media {
+        gap: 16px;
+    }
+}
+
+main {
+    margin-top: 200px;
+}
+
+.homePage {
+    margin-top: -200px;
 }

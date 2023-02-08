@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - TravelBlog</title>
     <link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet">
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/TravelBlog.styles.css" asp-append-version="true" />
 </head>
@@ -19,12 +20,19 @@
       <partial name="_Navigation" />
     </header>
   </nav>
-  @RenderBody()
+  <main>
+      @RenderBody()
+  </main>
 @*  <footer class="border-top footer text-muted">
         <div class="container">
             &copy; 2023 - TravelBlog - <a asp-area="" asp-page="/Privacy">Privacy</a>
         </div>
     </footer>*@
 
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+
+    @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>
