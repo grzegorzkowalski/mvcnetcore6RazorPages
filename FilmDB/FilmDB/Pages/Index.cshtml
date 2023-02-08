@@ -8,9 +8,9 @@
 <h1>Index</h1>
 
 <p>
-    <a asp-page="Create">Create New</a>
+    <a asp-page="AddFilm">Dodaj nowy film</a>
 </p>
-<table class="table">
+<table class="table table-primary table-striped">
     <thead>
         <tr>
             <th>
@@ -32,9 +32,29 @@
                 @Html.DisplayFor(modelItem => item.Year)
             </td>
             <td>
-                <a asp-page="./EditFilm" asp-route-id="@item.ID">EditFilm</a> |
-                <a asp-page="./Details" asp-route-id="@item.ID">Details</a> |
-                <a asp-page="./RemoveFilm" asp-route-id="@item.ID">RemoveFilm</a>
+                <div class="btn-group" role="group" aria-label="Basic mixed styles example">
+                    <a 
+                        asp-page="./EditFilm" 
+                        asp-route-id="@item.ID" 
+                        class="btn btn-warning"
+                    >
+                        EditFilm
+                    </a>
+                    <a 
+                        asp-page="./Details" 
+                        asp-route-id="@item.ID"
+                        class="btn btn-info"
+                    >
+                        Details
+                    </a>
+                    <a 
+                        asp-page="./RemoveFilm" 
+                        asp-route-id="@item.ID"
+                        class="btn btn-danger"
+                    >
+                        RemoveFilm
+                    </a>
+                </div>             
             </td>
         </tr>
 }
