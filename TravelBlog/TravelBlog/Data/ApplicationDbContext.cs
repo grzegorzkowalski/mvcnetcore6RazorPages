@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using TravelBlog.Models;
 
 namespace TravelBlog.Data
 {
@@ -9,5 +10,6 @@ namespace TravelBlog.Data
             : base(options)
         {
         }
+        public DbSet<GalleryItem> GalleryItems { get; set; }
     }
 }
