@@ -1,9 +1,11 @@
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace FilmDB.Areas.CMS.Pages
 {
+    [Authorize(Roles = "Admin")]
     public class AddToRoleModel : PageModel
     {
         private RoleManager<IdentityRole> _roleManager;
