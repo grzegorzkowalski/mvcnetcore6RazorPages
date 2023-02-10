@@ -19,9 +19,18 @@ namespace FilmDB.Areas.CMS.Pages
         public void OnGet()
         {
         }
-        public void OnPost()
+        public async Task<IActionResult> OnPost(IdentityRole role)
         {
-            var role = _roleManager.Roles;
+            var newRole  = await _roleManager.CreateAsync(role);
+
+            if (newRole.Succeeded)
+            {
+                return RedirectToPage("Index");
+            }
+            else
+            {
+                return Page();
+            }
         }
     }
 }
