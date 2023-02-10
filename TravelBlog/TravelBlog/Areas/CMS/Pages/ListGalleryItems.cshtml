@@ -1,0 +1,43 @@
+﻿@page "/{area}/galeria"
+@model TravelBlog.Areas.CMS.Pages.ListGalleryItemsModel
+
+@{
+    ViewData["Title"] = "ListGalleryItems";
+}
+
+<h1>ListGalleryItems</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.GalleryItem[0].Title)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.GalleryItem[0].Link)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.GalleryItem) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Link)
+            </td>
+            <td>
+                <a asp-area="cms" asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-area="cms" asp-page="./Details" asp-route-id="@item.Id">Details</a> |
+                <a href="/cms/remove/@item.Id">Remove</a>
+                <a href="/cms/delete/@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

@@ -11,6 +11,6 @@
 1. Dependency Injection
 1. Warsztat Travel Blog część 1
 1. Zarządzanie użytkownikami i rolami, uwierzytelnianie, bezpieczeństwo
-1. Wykorzystanie Web API i SignalR
+1. Wykorzystanie Web API (opcjonalnie)
 1. Zaawansowane Core MVC i Entity Framework Core
-1. Warsztat Travel Blog część 2
+1. Warsztat Travel Blog część 2 (SignalR)

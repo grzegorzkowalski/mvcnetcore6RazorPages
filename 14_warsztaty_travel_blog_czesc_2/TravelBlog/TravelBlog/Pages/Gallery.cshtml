@@ -1,0 +1,61 @@
+﻿@page "/galeria"
+@model TravelBlog.Pages.GalleryModel
+@{
+}
+  <section id="gallery" class="gallery-container">
+    <div class="gallery">
+        @foreach(var item in Model.GalleryItems)
+        {
+            <div class="gallery-box">
+                <img src="@item.Link" alt="bay" class="gallery-main-photo">
+                <p class="main-gallery-photo-description">@item.Title</p>
+                <div class="gallery-cover">
+                    <img src="~/assets/galleryIcons.png" alt="gallery icon">
+                </div>
+            </div>
+        }
+      @*<div class="gallery-box">
+        <img src="~/assets/gallery-1.jpg" alt="bay" class="gallery-main-photo">
+        <p class="main-gallery-photo-description">laos!</p>
+        <div class="gallery-cover">
+          <img src="~/assets/galleryIcons.png" alt="gallery icon">
+        </div>
+      </div>
+      <div class="gallery-box">
+        <img src="~/assets/gallery-2.jpg" alt="bay" class="gallery-main-photo">
+        <p class="main-gallery-photo-description">laos!</p>
+        <div class="gallery-cover">
+          <img src="~/assets/galleryIcons.png" alt="gallery icon">
+        </div>
+      </div>
+      <div class="gallery-box">
+        <img src="~/assets/gallery-3.jpg" alt="bay" class="gallery-main-photo">
+        <p class="main-gallery-photo-description">laos!</p>
+        <div class="gallery-cover">
+          <img src="~/assets/galleryIcons.png" alt="gallery icon">
+        </div>
+      </div>
+      <div class="gallery-box">
+        <img src="~/assets/gallery-4.jpg" alt="bay" class="gallery-main-photo">
+        <p class="main-gallery-photo-description">laos!</p>
+        <div class="gallery-cover">
+          <img src="~/assets/galleryIcons.png" alt="gallery icon">
+        </div>
+      </div>
+      <div class="gallery-box">
+        <img src="~/assets/gallery-5.jpg" alt="bay" class="gallery-main-photo">
+        <p class="main-gallery-photo-description">laos!</p>
+        <div class="gallery-cover">
+          <img src="~/assets/galleryIcons.png" alt="gallery icon">
+        </div>
+      </div>
+      <div class="gallery-box">
+        <img src="~/assets/gallery-6.jpg" alt="bay" class="gallery-main-photo">
+        <p class="main-gallery-photo-description">laos!</p>
+        <div class="gallery-cover">
+          <img src="~/assets/galleryIcons.png" alt="gallery icon">
+        </div>
+      </div>*@
+    </div>
+  </section>
+	  

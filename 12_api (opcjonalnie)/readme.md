@@ -11,8 +11,3 @@
 1. Opatrz je odpowiednimi atrybutami metod typu `[HttpPost]`.
 1. Wykorzystaj narzędzie Postman do przetestowania kodu.
 1. Dla chętnych - wykorzystaj bibliotekę Swagger do testowania swojego API.
-
-#### Zadanie 2
-
-1. Dodaj Hub SignalR do obsługi dodawania nowych filmów. 
-1. Na stronie głównej aplikacji `FilmDB` wyświetl ostatni dodany film na żywo.
