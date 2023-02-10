@@ -1,0 +1,23 @@
+﻿@page
+@model FilmDB.Pages.ChangeCategoryModel
+@{
+    ViewData["Title"] = "Change Category";
+}
+
+<h1>Change Film Category</h1>
+
+<form method="post">
+    <select name="FilmID" id="FilmID" class ="form-control">
+        @foreach(var item in Model.Films)
+        {
+            <option value="@item.ID">@item.Title</option>
+        }
+    </select>
+    <select name="GenreID" id="GenreID" class ="form-control">
+        @foreach(var item in Model.Genres)
+        {
+            <option value="@item.GenreID">@item.Name</option>
+        }
+    </select>
+    <button type="submit">Wybierz</button>
+</form>

@@ -78,10 +78,13 @@ namespace FilmDB.Repositories
             return film;
 
         }
-
+        public List<Film> GetFilmsSync()
+        {
+            return _context.Films.ToList();
+        }
         public async Task<List<Film>> GetFilms()
         {
-            return await _context.Films.ToListAsync();
+            return await _context.Films.Include(g => g.Genre).ToListAsync();
         }
     }
 }

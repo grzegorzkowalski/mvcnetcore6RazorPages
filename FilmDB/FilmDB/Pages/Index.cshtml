@@ -19,6 +19,9 @@
             <th>
                 @Html.DisplayNameFor(model => model.Film[0].Year)
             </th>
+            <th>
+                Gatunek
+            </th>
             <th></th>
         </tr>
     </thead>
@@ -31,6 +34,9 @@
             <td>
                 @Html.DisplayFor(modelItem => item.Year)
             </td>
+            <td>
+                @if (item.Genre != null){@Html.Raw(item.Genre.Name) }
+             </td>
             <td>
                 <div class="btn-group" role="group" aria-label="Basic mixed styles example">
                     <a 
