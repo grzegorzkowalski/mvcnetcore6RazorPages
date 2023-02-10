@@ -1,0 +1,24 @@
+﻿@page "/{area}/lista-rol"
+@model FilmDB.Areas.CMS.Pages.ListRolesModel
+@{
+    ViewData["Title"] = "Lista ról";
+}
+
+<h1>@ViewData["Title"]</h1>
+<h2><a href="/CMS/dodaj-role">Dodaj Rolę</a></h2>
+@if(!String.IsNullOrWhiteSpace(@Model.Text))
+{
+   <h3>@Model.Text</h3> 
+}
+
+<ul>
+    @foreach(var item in Model.Roles)
+    {
+        <li>
+            @item.Name 
+            | <a class="btn btn-warning" href="/cms/edytuj-role/@item.Id">EditRole</a>
+            | <a class="btn btn-danger" href="/cms/usun-role/@item.Id">RemoveRole</a>
+        </li>
+    }
+</ul>
+

@@ -1,0 +1,27 @@
+﻿@page "/{area}/usun-role/{id}"
+@model FilmDB.Areas.CMS.Pages.RemoveRoleModel
+@{
+    ViewData["Title"] = "Usuń rolę";
+}
+
+<h1>@ViewData["Title"]</h1>
+<div class="row">
+    <div class="col-md-4">
+        <section>
+            <form id="account" method="post">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <input type="hidden" asp-for="Role.Id" />
+                <div class="form-floating">
+                    <input disabled asp-for="Role.Name" class="form-control" autocomplete="username" aria-required="true" />
+                    <label asp-for="Role.Name" class="form-label"></label>
+                    <span asp-validation-for="Role.Name" class="text-danger"></span>
+                </div>
+                <div>
+                    <button id="login-submit" type="submit" class="w-100 btn btn-lg btn-primary">Usuń</button>
+                </div>
+            </form>
+        </section>
+    </div>
+</div>
+
+

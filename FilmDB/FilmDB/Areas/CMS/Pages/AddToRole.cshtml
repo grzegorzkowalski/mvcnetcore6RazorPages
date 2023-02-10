@@ -1,0 +1,28 @@
+﻿@page
+@model FilmDB.Areas.CMS.Pages.AddToRoleModel
+
+@{
+    ViewData["Title"] = "Dodaj rolę użytkownikowi";
+}
+
+<h1>@ViewData["Title"]</h1>
+<h2><a href="/CMS/dodaj-role">Dodaj Rolę</a></h2>
+<form method="post">
+    <select name="UserID"> 
+        @foreach(var item in Model.Users)
+        {
+            <option value="@item.Id">@item.UserName</option>
+        }
+    </select>
+    <select name="RoleID"> 
+        @foreach(var item in Model.Roles)
+        {
+            <option value="@item.Id">@item.Name</option>
+        }
+    </select>
+    <div>
+        <button id="userRole-submit" type="submit" class="w-100 btn btn-lg btn-primary">Dodaj rolę</button>
+    </div>
+</form>
+
+
